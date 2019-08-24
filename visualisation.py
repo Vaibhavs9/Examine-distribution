@@ -25,14 +25,14 @@ def get_iqr(data_1):
    q1, q3= np.percentile(sorted(data_1),[25,75])
    iqr=(q3 - q1)
    return {'standard_dev':spread(data_1), 'iqr':iqr,'lower_bound':(q1 -(1.5 * iqr)),'upper_bound':(q3 +(1.5 * iqr))}
-age_nparry=getnumpyarray(df,"Age")
+fare_nparry=getnumpyarray(df,"Age")
 def boxplot(path):
-    plt.boxplot(path.dropna(subset=['Age'])['Age'])
+    plt.boxplot(path.dropna(subset=['Fare'])['Fare'])
     plt.show()
 def histogram(path):
-    plt.hist(path.dropna(subset=['Age'])['Age'])
+    plt.hist(path.dropna(subset=['Fare'])['Fare'])
     plt.show()
 if __name__ == "__main__":
     print(boxplot(df))
     print(histogram(df))
-    print(get_outlier(age_nparry))
+    print(get_outlier(fare_nparry))
